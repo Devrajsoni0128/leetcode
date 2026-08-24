@@ -1,0 +1,33 @@
+/*class Solution {
+    public int maxSubArray(int[] nums) {
+        int currSum = nums[0];
+        int maxSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            maxSum = Math.max(maxSum, currSum);
+        }
+
+        return maxSum;
+    }
+}*/
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int maxsum = nums[0];
+        int currentsum = 0;
+
+        for(int i = 0; i < nums.length; i++){
+            currentsum += nums[i];
+
+            if(currentsum > maxsum){
+                maxsum = currentsum;
+            }
+
+            if(currentsum < 0){
+                currentsum = 0;
+            }
+        }
+        return maxsum;
+    }
+}
